@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="style.css"/>
+<!-- Include JS File Here -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<div class="main">
+		<form class="form" method="POST" id="form" autocomplete="off">
+			<h2>Register Now..!!</h2>
+			<label>Name :</label>
+				<input type="text" name="name" id="name">
+			<label>Email :</label>
+				<input type="text" name="email" id="email">
+			<label>Password :</label>
+				<input type="password" name="password" id="password">
+			<label>Confirm Password :</label>
+				<input type="password" name="cpassword" id="cpassword">
+			<input type="button" name="register" id="register" value="Register">
+		</form><br><br>
+		<div id="success"></div>
+		<div id="error"></div>
+	</div>
+</div>
+<script>
+$(document).ready(function() {
+	$("#register").click(function() {
+		var name = $("#name").val();
+		var email = $("#email").val();
+		var password = $("#password").val();
+		var cpassword = $("#cpassword").val();
+			if (name == '' || email == '' || password == '' || cpassword == '') {
+				alert("Please fill all fields...!!!!!!");
+			} else if ((password.length) < 5) {
+				alert("Password should atleast 5 character in length...!!!!!!");
+			} else if (!(password).match(cpassword)) {
+				alert("Your passwords don't match. Try again?");
+			} else {
+				$.post("register.php", {
+					name: name,
+					email: email,
+					password: password,
+					cpassword: cpassword
+				}, function(data) {
+					if (data == 0) {
+						//alert("sucesS");
+					$("#success").html('<div class="alert alert-success"><strong>Success!</strong> Registered successfully..!!!</div>');
+					//	$("#error").html('<div class="alert alert-danger"><strong>Sorry!</strong> Something went wrong! please try again..!!!</div>');
+				
+						//$("form")[0].reset();
+					}
+					
+				//	alert(data);
+				else{
+				$("#error").html('<div class="alert alert-danger"><strong>Sorry!</strong> Something went wrong! please try again..!!!</div>');
+					
+				}
+				 window.location.reload(); 
+				});
+			}
+	});
+});
+</script>
+</body>
+</html>
