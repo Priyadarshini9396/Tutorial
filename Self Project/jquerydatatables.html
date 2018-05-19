@@ -1,0 +1,149 @@
+<!-- Author : Priyadarshini
+	Company name : Wizara Infotech
+	Date : 21-Feb-2018
+	Description : This project is about a jQuery DataTables Example-1 in HTML.
+-->
+<html>
+   <head>
+      <title>jQuery DataTables Examples</title>
+		<!--CSS Files -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!--JS Files -->
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+	</head>
+<style>
+h5{
+	color:#e609e0;
+	font-family : cursive;
+	text-align :center;
+	font-size:22px;	
+}
+thead{
+	color:#e6ca09;
+	font-family:cursive;
+	font-size:15px;
+	
+}
+tfoot{
+	color:#e6ca09;
+	font-family:cursive;
+	font-size:15px;
+	
+}
+label{
+	color: #0a2ede;
+	font-weight:300;
+	}
+</style>
+<body>
+<h5>JQuery DataTables Example</h5>
+	<div class="container">
+		<table id="table" class="table table-striped">
+			<thead>
+				<tr>
+					<th> Name </th>
+					<th> Register No. </th>
+					<th> College Name </th>
+					<th> Address</th>
+					<th> Contact Number </th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th> Name </th>
+					<th> Register No. </th>
+					<th> College Name </th>
+					<th> Address</th>
+					<th> Contact Number </th>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<td>Suriya </td>
+					<td> 3548</td>
+					<td>DMICE</td>
+					<td> Chennai</td>
+					<td>8569741236</td>
+				</tr>
+				<tr>
+					<td>Adharva</td>
+					<td>5481</td>
+					<td> SAEC</td>
+					<td> Madurai</td>
+					<td>9247859634</td>
+				</tr>
+				<tr>
+					<td>Trisha</td>
+					<td>0654</td>
+					<td> JEC</td>
+					<td> Pune</td>
+					<td>7541598956</td>
+				</tr>
+				<tr>
+					<td>Ramya</td>
+					<td>5487</td>
+					<td> B.S</td>
+					<td> Chennai</td>
+					<td>8457848754</td>
+				</tr>
+				<tr>
+					<td>S.K</td>
+					<td>2787</td>
+					<td> REC</td>
+					<td>Kanchipuram</td>
+					<td>2878195298</td>
+				</tr>
+				<tr>
+					<td>Vijay</td>
+					<td>1787</td>
+					<td> IIT</td>
+					<td> Bombay</td>
+					<td>9987425610</td>
+				</tr>
+				<tr>
+					<td>Nani</td>
+					<td>3988</td>
+					<td> MEC</td>
+					<td>Coimbatore</td>
+					<td>8451387502</td>
+				</tr>
+				<tr>
+					<td>Simbu</td>
+					<td>4792</td>
+					<td> Sastha</td>
+					<td> Trichy</td>
+					<td>8456971204</td>
+				</tr>
+				<tr>
+					<td>Nayanthara</td>
+					<td>2476</td>
+					<td> VIT</td>
+					<td> Banglore</td>
+					<td>5746314800</td>
+				</tr>
+				<tr>
+					<td>Tamana</td>
+					<td>02358</td>
+					<td> NNC</td>
+					<td> Salem</td>
+					<td>9574123658</td>
+				</tr>
+				<tr>
+					<td>Priyanka</td>
+					<td>5587</td>
+					<td>XUF</td>
+					<td>Puducherry</td>
+					<td>7200567198</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#table').DataTable();
+	} );
+</script>
+</body>
+</html>

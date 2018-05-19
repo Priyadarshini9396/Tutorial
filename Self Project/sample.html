@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>jQuery Form Submit Example</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="css/submit_jquery.css"/>
+<!-- Include JS File Here -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--<script src="js/submit_jquery.js"></script>-->
+
+<style>
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+h2{
+text-align: center;
+font-size: 21px;
+}
+hr{
+margin-bottom: 30px;
+margin-top: -7px;
+border: 0;
+border-bottom: 1px solid #ccc;
+}
+div.container{
+width: 960px;
+margin:50px auto;
+font-family: 'Droid Serif', serif;
+position:relative;
+}
+div.main{
+width: 350px;
+float:left;
+padding: 15px 60px 35px;
+margin-top: 60px;
+box-shadow: 0 0 10px;
+border-radius: 2px;
+font-size: 13px;
+}
+input[type=text]{
+width: 99.8%;
+height: 40px;
+padding-left: 5px;
+margin-bottom: 25px;
+margin-top: 10px;
+box-shadow: 0 0 5px;
+border: 1px solid #b7b7b7;
+color: #4f4f4f;
+font-size: 15px;
+}
+label{
+color: #464646;
+font-size: 14px;
+font-weight: bold;
+}
+#btn_id,#btn_name,#btn_class,#btn_tag ,#btn_event{
+font-size: 14px;
+border: 1px solid green;
+background-color: #BCFF96;
+font-weight: bold;
+box-shadow: 0 0 5px #318600;
+border-radius: 3px;
+cursor: pointer;
+outline: none;
+}
+#btn_id{
+padding: 7px 38px;
+}
+#btn_name{
+padding: 7px 27px;
+margin-left: 10px;
+}
+#btn_class{
+padding: 7px 26px;
+margin-top: 10px;
+}
+#btn_tag{
+padding: 7px 33px;
+margin-left: 10px;
+}
+#btn_event{
+padding: 7px 33px;
+margin-top: 10px;
+margin-left: 80px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="main">
+<form action="#" method="post" name="form_name" id="form_id" class="form_class" >
+<h2>jQuery Form Submit Example</h2>
+<label>Name :</label>
+<input type="text" name="name" id="name" placeholder="Name" />
+<label>Email :</label>
+<input type="text" name="email" id="email" placeholder="Valid Email" />
+<input type="button" name="submit_id" id="btn_id" value="Submit by Id" />
+<input type="button" name="submit_name" id="btn_name" value="Submit by Name" />
+<input type="button" name="submit_event" id="btn_event" value="Submit by Event" />
+<input type="button" name="submit_class" id="btn_class" value="Submit by Class" />
+<input type="button" name="submit_tag" id="btn_tag" value="Submit by Tag" />
+</form>
+</div>
+</div>
+</body>
+<script>
+$(document).ready(function() {
+// Submit form with id function.
+$("#btn_id").click(function() {
+var name = $("#name").val();
+var email = $("#email").val();
+if (validation()) // Calling validation function.
+{
+$("#form_id").submit(); // Form submission.
+alert(" Name : " + name + " \n Email : " + email + " \n Form id : " + $("#form_id").attr('id') + "\n\n Form Submitted Successfully......");
+}
+});
+
+// Submit form with name function.
+$("#btn_name").click(function() {
+var name = $("#name").val();
+var email = $("#email").val();
+if (validation()) // Calling validation function.
+{
+$("form[name='form_name']").submit(); // Form Submission
+alert(" Name : " + name + " \n Email : " + email + " \n Form name : " + $("form[name='form_name']").attr('name') + "\n\n Form Submitted Successfully......");
+}
+});
+
+// Submit form with class function.
+$("#btn_class").click(function() {
+var name = $("#name").val();
+var email = $("#email").val();
+if (validation()) // Calling validation function.
+{
+$(".form_class").submit(); // Form Submission.
+alert(" Name : " + name + " \n Email : " + email + " \n Form class : " + $(".form_class").attr('class') + "\n\n Form is Submitted Successfully......");
+}
+});
+
+$("#btn_tag").click(function() {
+var name = $("#name").val();
+var email = $("#email").val();
+if (validation()) // Calling validation function.
+{
+$("form").submit(); // Form submission.
+alert(" Name : " + name + " \n Email : " + email + " \n Tag : form\n\n Form Submitted Successfully......");
+}
+});
+
+// Submit form with Event Handler function.
+$("#btn_event").click(function() {
+var name = $("#name").val();
+var email = $("#email").val();
+if (validation()) // Calling validation function.
+{
+$("#form_id").submit(function() {
+alert('Form is submitting....');
+//or Do Something...
+return true;
+});
+$("#form_id").submit(); // Form Submission
+alert(" Name : " + name + " \n Email : " + email + "\n\n Form Submitted Successfully......");
+}
+});
+
+// Name and Email validation Function.
+function validation() {
+var name = $("#name").val();
+var email = $("#email").val();
+var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+if (name === '' || email === '') {
+alert("Please fill all fields...!!!!!!");
+return false;
+} else if (!(email).match(emailReg)) {
+alert("Invalid Email...!!!!!!");
+return false;
+} else {
+return true;
+}
+}
+});
+</script>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+<!--Style for icon-rotation-->
+.rotate{
+    -moz-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.rotate.down{
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+}	
+</style>
+</head>
+<body>
+<a href="#" >
+	<div class="fa fa-chevron-up rotate"></div></a>
+
+<script>
+$(".rotate").click(function(){
+ $(this).toggleClass("down")  ; 
+})
+</script>
+</body>
+</html>

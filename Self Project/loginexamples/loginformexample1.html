@@ -1,0 +1,98 @@
+<html>
+<head>
+<title> Login form Example</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+	<link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.css">
+	
+	<link rel="stylesheet" href="cssfile.css" type="text/css">
+</head>
+<body>
+<div class="content">
+<div class="limiter">
+		<div class="container-login">
+			<div class="wrap-login">
+				<form class="login-form" id="loginform" method="POST">
+					<span class="login-form-title">
+						Welcome
+					</span>
+					
+					<div class="wrap-input">
+						<input class="input" type="text" id="username" name="username">
+						<span class="focus-input" data-placeholder="Username"></span>
+					</div>
+					<br><br>
+					<div class="wrap-input">
+						<input class="input" type="password" id="password" name="password">
+						<span class="focus-input" data-placeholder="Password"></span>
+					</div>
+					<br><br>
+					<div class="container-login-form-btn">
+						<button class="login-form-btn" id="login">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+	$("#login").click (function()  {
+
+		  var username = $("#username").val();
+		  var password = $("#password").val();
+
+		  alert("  username : " + username + " \n  password : " + password + " \n \n Login Successfully......");
+		});
+	});
+</script>
+<script>
+$(document).ready(function() {
+    $('#loginform').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			name: {
+				message: 'The username is not valid',
+				validators: {
+					notEmpty: {
+						message: 'The username is required and cannot be empty'
+					},
+					stringLength: {
+						min: 3,
+						max: 50,
+						message: 'The username must be more than 6 and less than 30 characters long'
+					},
+					regexp: {
+						regexp: /^[a-zA-Z ]*$/,
+						message: 'The username can only consist of only alphabets'
+					},
+				}
+			},
+			pass: {
+				validators: {
+					notEmpty: {
+						message: 'The username is required and cannot be empty'
+					},
+					stringLength: {
+						min: 4,
+						max: 12,
+						message: 'The password must be more than 6 and less than 30 characters long'
+					},
+				}
+			}
+		}
+	});
+});
+</script>	
+	</body>
+</html>

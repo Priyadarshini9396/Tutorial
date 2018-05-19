@@ -1,0 +1,251 @@
+<!-- Author : Priyadarshini
+	 Date : 03-Feb-2018
+	 Project : Registration Form
+-->
+<html>
+<head>
+<title>Registration Form</title>
+<!--<link rel="stylesheet" type="text/css" href="Stylesheet.css"/>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+#text_area{
+	resize:none;
+}
+.personal_field{
+	width:500px;
+	margin-left: 100px;
+}
+.contact_field{
+	width:500px;
+	margin-left: 730px;
+    margin-top: -300px;
+}
+.education_field{
+	width:500px;
+	margin-top: -147px;
+	margin-left: 100px;
+}
+.dropdown_list{
+	width :173px;
+}	
+.dob{
+	width:173px;
+}
+.TextBox_Details{
+	padding-top:20px;
+}
+.Label_Details{
+	padding-top:20px;
+	font-family:cursive;
+}
+.contact_details{
+	margin-top:-200px;
+	margin-left:600px;
+}
+.h3{
+	font-family:cursive;
+	font-size:30px;
+	color:#ee9d4a;
+    text-align: center;
+}
+.b{
+	font-family:cursive;
+	font-size:25px;
+	color:#a788c9;
+}
+.button{
+	margin-left:535px;
+	padding-right:5em;
+	margin-top:50px;
+}
+.submit_button{
+	background-color:#4CAF50;
+	color:#fff;
+	text-align:center;
+	border:none;
+	font-size: 15px;
+    padding: 12px 25px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 8px;
+}
+.reset_button{
+	background-color: #f44336;
+	color:#fff;
+	text-align:center;
+	border:none;
+	font-size: 15px;
+    padding: 12px 25px;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 8px;
+}
+.reset_btn{
+padding-left: 50px;
+}
+</style>
+<script>
+function disable1()
+{
+if(document.getElementById("single").checked)
+	{
+	 document.getElementById("married").disabled=true;
+	 }
+	else{
+	document.getElementById("married").disabled=false;
+	}
+}
+function disable2()
+{
+if(document.getElementById("married").checked)
+	{
+	document.getElementById("single").disabled=true;
+	}
+	else{
+	document.getElementById("single").disabled=false;
+	}
+}
+function blockSpecialChar(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return ((k>64 && k<91) || (k>96 && k<123) || k==8 ||k==32 || (k>=48 && k<=57));
+		}
+function blockSpecialChar_number(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return (k==8 ||k==32 || (k>=48 && k<=57));
+		}
+function blockSpecialChar_emailid(e){
+		var k;
+		document.all ? k=e.keycode : k=e.which;
+		return ((k>64 && k<91) || (k>94 && k<123)||k==8 ||k==46 ||k==32 ||k==64 || (k>=48 && k<=57));
+		}
+</script>
+</head>
+<body>
+<h3 class="h3">Registration Form</h3>
+<form name="reg_form"  id="reg_form" action="regform.php" method="Post" >
+<fieldset class="personal_field">
+<legend><b class="b">Personal Details</b></legend>
+<table>
+	<tr>
+		<td class="Label_Details">First Name :</td><td class="TextBox_Details"> <input type="text" name="fname" id="firstname" size="20" placeholder="Enter Your Name" onkeypress="return blockSpecialChar(event)" required><br></td>
+	</tr>
+	<tr>
+		<td class="Label_Details">Last Name :</td><td class="TextBox_Details"> <input type="text" name="lname" id="lastname" size="20" placeholder="Enter your LastName" onkeypress="return blockSpecialChar(event)" required><br></td>
+	</tr>
+	<tr>
+		<td class="Label_Details">Gender :</td>
+		<td class="TextBox_Details"> <input type="radio" name="gender" value="Male" id="male" required>Male
+			 <input type="radio" name="gender" value="Female" id="female">Female<br>
+		</td>
+	</tr>
+	<tr>
+		<td class="Label_Details">D.O.B : </td>
+		<td class="TextBox_Details"> <input type="date" class="dob" name="dob" size="20" id="dob"  required ><br></td>
+	</tr>
+	<tr>
+		<td class="Label_Details">Marital Status : </td>
+		<td class="TextBox_Details"><input type="checkbox" name="mstatus" value="Single" id="single" onclick="disable1()" >Single
+			<input type="checkbox" name="mstatus" value="Married" id="married" onclick="disable2()">Married<br>
+		</td>
+	
+	</tr>
+	</table></fieldset><br>
+<p class="contact_details">
+	<fieldset class="contact_field">
+	<legend><b class="b">Contact Details</b></legend>	
+	<table>
+	<tr>
+		<td class="Label_Details">Address :</td><td class="TextBox_Details"> <textarea id="text_area" name="address" rows="4" cols="22" id="address" placeholder="Enter your Residential Address" required></textarea><br></td>
+	</tr>
+	<tr>
+		<td class="Label_Details">Pincode : </td><td class="TextBox_Details"><input type="text" name="pincode" size="20" id="pincode" maxlength="6"  placeholder="Pincode" onkeypress="return blockSpecialChar_number(event)"required></td>
+	</tr>
+	<tr>
+		<td class="Label_Details">City : </td> <td class="TextBox_Details"><select id="dropdown1" name="city" class="dropdown_list" required>
+								<option value="NA">--Select City--</option>
+								<option value="ariyalur">Ariyalur</option>
+								<option value="banglore">Bangalore</option>
+								<option value="chennai">Chennai</option>
+								<option value="dindugal">Dindugal</option>
+								<option value="erode">Erode</option>
+								<option value="hosur">Hosur</option>
+								<option value="karnataka">Karnataka</option>
+								<option value="madurai">Madurai</option>
+								<option value="nagapattinam">Nagapattinam</option>
+								<option value="puducherry">Puducherry</option>
+								<option value="salem">Salem</option>
+								<option value="trichy">Trichy</option>
+								<option value="vellore">Vellore</option>
+							</select>
+						</td>
+	</tr>	
+	<tr>
+		<td class="Label_Details">Nationality : </td>
+			<td class="TextBox_Details"><select id="dropdown2" name="nationality" class="dropdown_list" required>
+								<option value="NA">--Select Nationality--</option>
+								<option value="indian" >Indian</option>
+								<option value="others">Others</option>
+							</select>
+				</td>
+	</tr>
+	<tr>
+		<td class="Label_Details">Contact Number :</td><td class="TextBox_Details"> <input type="text" name="cnumber" id="cnumber" size="20" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br></td>
+	</tr>
+	<tr>
+		<td class="Label_Details">Email-ID :</td><td class="TextBox_Details"> <input type="text" name="email" id="email" size="20" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br></td>
+	</tr>
+	<tr>
+		<td class="Label_Details">Password :</td><td class="TextBox_Details"> <input type="password" name="password" id="password" size="20" maxlength="5" required><br></td>
+	</tr></p>
+</table>
+</fieldset>	<br>
+	
+<fieldset class="education_field">
+	<legend><b class="b">Educational Qualifications</b></legend>
+	<table>
+		<tr>
+			<td class="Label_Details">Qualification : </td><td class="TextBox_Details">
+													<select id="dropdown3" name="qualification" class="dropdown_list" required>
+														<option value="NA">--Select Degree--</option>
+														<option value="bsc">B.sc.</option>
+														<option value="be">B.E/B.Tech</option>
+														<option value="msc">M.Sc.</option>
+														<option value="me">M.E./M.Tech</option>
+														<option value="barch">B.Arch</option>
+													</select>
+												</td>
+		</tr>
+		<tr>
+			<td class="Label_Details">University : </td><td class="TextBox_Details">
+													<select id="dropdown4" name="university" class="dropdown_list" required>
+														<option value="NA">--Select University--</option>
+														<option value="annauniv" selected="annauniv">Anna University</option>
+														<option value="muniv">Madras University</option>
+														<option value="others">Others</option>
+													</select>
+												</td>
+		</tr>
+	</table>
+</fieldset><br>
+<table class="button">
+	<tr>
+		<td><input type = "submit"  id="submit" value="Submit" class="submit_button" data-toogle="tooltip" data-placement="left" title="Click here to submit" /></td>
+			<td class="reset_btn"><input type = "reset" id="reset" value="Reset" class="reset_button" data-toogle="tooltip" data-placement="bottom" title="Click here..If you want to reset.!!"/></td>
+	</tr>
+</table>
+
+<script>
+$(document).ready(function(){
+	$('[data-toogle="tooltip"]').tooltip();
+});
+</script>
+	
+</form>
+
+</body>
+</html>

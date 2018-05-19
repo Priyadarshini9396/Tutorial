@@ -1,0 +1,70 @@
+<!-- Author : Priyadarshini D
+	Company Name : nWizara Infotech 
+	Date : 27-Feb-2018
+	Description : This Webpage contains jQuery Grid with Dummy data
+-->
+
+<html>
+<head>
+<title> Jquery Grid Example </title>
+<!--CSS Files -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css">
+	 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
+
+	
+</head>
+<body>
+<div>
+
+
+<table id = "grid">
+	</table>
+	<div id="pgr" >
+	</div>
+</div>
+	
+	
+		<script type= "text/javascript">			
+		var	mydata = [
+					{ id: 1, FirstName: "Priya", LastName: "Darshini", date :"1996-05-10", location : "Chennai" },
+					{ id: 2, FirstName: "Rumana", LastName: "Rumana", date : "1996-06-12",location :"Madurai"},
+					{ id: 3, FirstName: "Charles", LastName: "Babage",  date : "1986-12-18",location : "Pondicherry" },
+					{ id: 4, FirstName: "Barack", LastName: "Obama", date : "1986-02-28", location : "Kanchipuram" },
+					{ id: 5, FirstName: "Rajni", LastName: "Kanth",  date : "1995-08-20", location : "Salem" },
+					{ id: 6, FirstName: "Adharva", LastName: "Murali", date :"1993-11-30", location : "Chennai"},
+					{ id: 7, FirstName: "Goutham", LastName: "Karthick", date :"1992-08-21", location : "Chennai"},
+					{ id: 8, FirstName: "Kajal", LastName: "Agarwal", date :"1989-06-10", location : "Chennai"},
+					{ id: 9, FirstName: "Nikil", LastName: "Kalrani", date :"1993-08-11", location : "Chennai"},
+					{ id: 10, FirstName: "Abdul", LastName: "Wahab", date :"1988-08-20", location : "Kerela"},
+					{ id: 11, FirstName: "Naseerudeen", LastName: "Mohammed", date :"1994-05-15", location : "Chennai"}
+				];
+				$("#grid").jqGrid({
+				datatype:"local",
+				data: mydata,
+				colModel: [
+
+					{ name: "FirstName",Label : "First Name"},
+					{ name: "LastName", Label : "Last Name" },
+					{ name: "date", label: "Date",  align: "center", sorttype: "date",
+						formatter: "date", formatoptions: { newformat: "d-M-Y" } },
+					{ name: "location", Label : "Location" },
+				],
+				
+				pager : "#pgr",
+				rownumbers: true,
+				width : 700,
+				caption: "jQuery Grid Example"
+			});
+				/* $("#grid").jqGrid('navGrid','#pgr',
+						{add:true,
+						edit: true},
+						{multipleSearch:true}
+						); */
+				
+				</script>
+</body>
+</html>

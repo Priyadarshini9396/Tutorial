@@ -1,0 +1,82 @@
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>jQuery Autocomplete with Static Data</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	  <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/savanihd/multi-select-autocomplete/master/style.css"/>
+<script src="https://raw.githubusercontent.com/savanihd/multi-select-autocomplete/master/autocomplete.multiselect.js"></script>
+
+      </head>
+   
+  <body>
+	<h3>JQuery AutoComplete Examples</h3>
+   
+      <div class = "container">
+	  <!--AutoComplete Example1 -->
+		<div class="AutoComExample1">
+			 <p>1 . Jquery autocomplete Example which search a letter</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-1">
+		</div>
+		<div class="AutoComExample1">
+			 <p>1 . Jquery autocomplete Example which search a letter with an Autofocus</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-2">
+		</div>
+		<div class="AutoComExample1">
+			 <p>1 . Jquery autocomplete Example which search a letter any two letters</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-3">
+		</div>
+		<div class="AutoComExample1">
+			 <p>4 . Jquery autocomplete Example for disabled</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-4">
+		</div>
+		<div class="AutoComExample1">
+			 <p>4 . Jquery autocomplete Example for MultiSelect</p>
+			 <label>Enter Languages do you want ? </label>
+			 <input id = "autocomplete-5">
+		</div>
+	</div>
+		 <script>
+         $(function() {
+		 <!--autocomplete example -->
+            var autocomplete  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-1" ).autocomplete({
+               source: autocomplete
+            });
+			var autocomplete  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-2" ).autocomplete({
+                source: autocomplete,
+				autoFocus:true
+            });
+			var autocomplete  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-3" ).autocomplete({
+				minLength:2,   
+               delay:1000, 
+               source: autocomplete
+            });
+			});
+			</script>
+	<script>
+         $(function() {
+			 var autocomplete1  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-4" ).autocomplete(disable){
+               source: autocomplete1
+            });
+		});
+	</script>
+	<script>
+         $(function() {
+			var autocomplete2  =  ["C","C++","HTML","CSS","Bootstrap","Javascript","JQuery","PHP","Java","JSP","PERL","Python","Ruby","Android","swift","C#",".Net"];
+				$( "#autocomplete-5").autocomplete({
+                source: autocomplete2,
+			    multiselect: true
+            });
+		});
+	</script>
+	</body>
+	</html>

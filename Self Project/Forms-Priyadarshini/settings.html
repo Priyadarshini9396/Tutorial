@@ -1,0 +1,209 @@
+<html  xmlns="http://www.w3.org/1999/xhtml" lang="ta">
+<head>
+<title> Dashboard </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.delete-icon{
+	margin-top: -25px;
+    margin-left: 20px;
+	color:red;
+	}
+.pencil-icon{
+	color:#FF8C00;
+}  
+.add-icon{
+	margin-top: -27px;
+    margin-left: 43px;
+	color:green;
+}
+.h3{
+	color:#c16877;
+	font-family:cursive;
+	margin-left:480px;
+    padding-bottom: 164px;
+    margin-top: -55px;
+	}
+.img{
+	height: 40px;
+    margin-left:420px;
+   margin-top: -62px;
+    margin-bottom: -55px;
+}
+.thead_table1{
+	font-size:15px;
+	color:#4f72d3;
+}
+.thead_table2{
+	color:#60cd9b;
+	font-size:15px;
+}
+.breadcrumb{
+	width: 162px;
+    margin-top:-150px;
+    margin-left: 980px;
+	color: cadetblue;
+}
+.panel-group {
+    margin-bottom: 20px;
+    width: 120px;
+    margin-left: -80px;
+    margin-top: 50px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title" data-toggle="collapse" href="#collapse1">Menu</h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <ul class="list-group">
+          <a href="login.html"><li class="list-group-item">Home</li></a>
+          <a href="attendance.html"><li class="list-group-item">Attendance</li></a>
+          <a href="settings.html"><li class="list-group-item">Settings</li></a>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">  
+<img src="setting.png" alt=" " class="img"/>
+<h3 class="h3">Settings</h3>
+
+	<ol class="breadcrumb">
+			<li>Home</li>
+			<li>Settings</li>
+		</ol>
+	<table class="table table-hover">
+		<thead class="thead_table1">
+			<tr>
+				<th>ID</th>
+				<th>Full Name</th>
+				<th>D.O.B.</th>
+				<th>Gender</th>
+				<th>Religion</th>
+				<th>Community</th>
+				<th>Aadhar Number</th>
+				<th>Pan Card Number</th>
+				<th>Status</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>01</td>
+				<td>Suresh Raina</td> 
+				<td>09-01-1987</td>
+				<td>Male</td>
+				<td>Hindu</td>
+				<td>MBC</td>
+				<td>5210 3518 9647</td>
+				<td>TN - 857463191485</td>
+				<td>Ok</td>
+				<td><p class="pencil-icon"><span class="glyphicon glyphicon-pencil" onclick="alert('Successfully Edited');"></span></p>
+				<p class="delete-icon"><span class="glyphicon glyphicon-trash" onclick="alert('Are, You sure want to delete.?');"></span></p>
+				<p class="add-icon"> <span class="glyphicon glyphicon-plus" onclick="alert('New Record added Successfully');"></span></p></td>	
+			</tr>
+			<tr>
+				<td>02</td>
+				<td>Sania Mirza</td>
+				<td>18-07-1990</td>
+				<td>Female</td>
+				<td>Hindu</td>
+				<td>BC</td>
+				<td>8742 1531 5749</td>
+				<td>TN - 245935715664</td>
+				<td>Verify</td>
+				<td><p class="pencil-icon"><span class="glyphicon glyphicon-pencil" onclick="alert('Successfully Edited');"></span></p>
+				<p class="delete-icon"><span class="glyphicon glyphicon-trash" onclick="alert('Are, You sure want to delete.?');"></span></p>
+				<p class="add-icon"> <span class="glyphicon glyphicon-plus" onclick="alert('New Record added Successfully');"></span></p></td>	
+			</tr>
+			<tr>
+				<td>03</td>
+				<td>Adharva</td>
+				<td>26-07-1994</td>
+				<td>Male</td>
+				<td>Hindu</td>
+				<td>FC</td>
+				<td>2479 7496 0248</td>
+				<td>TN - 301500415279</td>
+				<td>Ok</td>
+				<td><p class="pencil-icon"><span class="glyphicon glyphicon-pencil" onclick="alert('Successfully Edited');"></span></p>
+				<p class="delete-icon"><span class="glyphicon glyphicon-trash" onclick="alert('Are, You sure want to delete.?');"></span></p>
+				<p class="add-icon"> <span class="glyphicon glyphicon-plus" onclick="alert('New Record added Successfully');"></span></p></td>	
+			</tr>
+		</tbody>
+	</table>
+<br><br>
+	<table class="table table-hover">
+		<thead class="thead_table2">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Degree</th>
+				<th>School / College</th>
+				<th>Board / University</th>
+				<th>X </th>
+				<th>XII</th>
+				<th>CGPA / % </th>
+				<th>No. Of Arrears</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>	
+				<td>02</td>
+				<td>Sania Mirza</td>
+				<td>M.Sc.</td>
+				<td>Cambridge University</td>
+				<td>University</td>
+				<td>465</td>
+				<td>1100</td>
+				<td>7.0</td>
+				<td>0</td>
+				<td><p class="pencil-icon"><span class="glyphicon glyphicon-pencil" onclick="alert('Successfully Edited');"></span></p>
+				<p class="delete-icon"><span class="glyphicon glyphicon-trash" onclick="alert('Are, You sure want to delete.?');"></span></p>
+				<p class="add-icon"> <span class="glyphicon glyphicon-plus" onclick="alert('New Record added Successfully');"></span></p></td>	
+			</tr>
+			<tr>	
+				<td>03</td>
+				<td>Adharva</td>
+				<td>B.E.</td>
+				<td>Valliammai College of Engineering and Technology</td>
+				<td> SRM University</td>
+				<td>492</td>
+				<td>1174</td>
+				<td>8.6</td>
+				<td>0</td>
+				<td><p class="pencil-icon"><span class="glyphicon glyphicon-pencil" onclick="alert('Successfully Edited');"></span></p>
+				<p class="delete-icon"><span class="glyphicon glyphicon-trash" onclick="alert('Are, You sure want to delete.?');"></span></p>
+				<p class="add-icon"> <span class="glyphicon glyphicon-plus" onclick="alert('New Record added Successfully');"></span></p></td>	
+			</tr>
+			<tr>	
+				<td>01</td>
+				<td>Suresh Raina</td>
+				<td>B.Arch</td>
+				<td>Jerusalem College Of Engineering</td>
+				<td>Anna University</td>
+				<td>416</td>
+				<td>947</td>
+				<td>7..5</td>
+				<td>1</td>
+				<td><p class="pencil-icon"><span class="glyphicon glyphicon-pencil" onclick="alert('Successfully Edited');"></span></p>
+				<p class="delete-icon"><span class="glyphicon glyphicon-trash" onclick="alert('Are, You sure want to delete.?');"></span></p>
+				<p class="add-icon"> <span class="glyphicon glyphicon-plus" onclick="alert('New Record added Successfully');"></span></p></td>	
+			</tr>
+		</tbody>
+	</table>
+				
+</div>
+</body>
+</html>

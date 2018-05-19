@@ -1,0 +1,94 @@
+<!-- Name : Priyadarshini
+	Company Name  : nWizara Infotech
+	Date : 07-March-2018
+	Description : Canvas in HTML 5 -->
+	
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	.canvas1{
+		width: 200;
+		height:100;
+		border:1px solid #000000;
+	}
+	.canvas2{
+		width: 200;
+		height:100;
+		border:1px solid #000000;
+	}
+	
+</style>
+</head>
+<body>
+
+	<!--Canvas Example 1-->
+	<canvas id="canvas1" class="canvas1"> </canvas> <br><br>
+
+	<!--Canvas Example 2-->
+	<canvas id="canvas2" class="canvas2"> </canvas> <br> <br>
+	
+	<!--Canvas Example 3-->
+	<canvas id="canvas3" class="canvas3"> </canvas> <br> 
+	
+	<!--Canvas Example 4-->
+	<canvas id="canvas4" width="110" height="110"></canvas>
+<script>
+	var c = document.getElementById("canvas1");
+	var ct = c.getContext("2d");
+	ct.moveTo(0,0);
+	ct.lineTo(300,150);
+	ct.stroke();
+</script>
+
+<!--For Text-->
+<script>
+	var c1 = document.getElementById("canvas2"); //Canvas Example 2
+	var ct1 = c1.getContext("2d");
+	<!--Mirror text-->
+	//ct1.translate(c1.width / 2, c1.height / 2);     
+	//ct1.scale(-1,1); 
+	ct1.font="30px Arial";
+	ct1.fillText("Hello..",10,50);
+</script>
+
+<!-- Gradient in Canvas -->
+<script>
+	var c = document.getElementById("canvas3");
+	var ctx = c.getContext("2d");
+
+	// Create gradient
+	var grd = ctx.createLinearGradient(350,380,500,150);
+	grd.addColorStop(0,"red");
+	grd.addColorStop(1,"white");
+
+	// Fill with gradient
+	ctx.fillStyle = grd;
+	ctx.fillRect(0,0,1950,100);
+</script>
+
+<!-- Basic Animation -->
+<script>
+	var ctx = document.getElementById('canvas4').getContext('2d');
+	var offset = 0;
+
+	function draw() {
+	  ctx.clearRect(0, 0, canvas4.width, canvas4.height);
+	  ctx.setLineDash([4, 2]);
+	  ctx.lineDashOffset = -offset;
+	  ctx.strokeRect(10, 10, 100, 100);
+	}
+
+	function rotate() {
+	  offset++;
+	  if (offset > 16) {
+	    offset = 0;
+	  }
+	  draw();
+	  setTimeout(rotate, 20);
+	}
+
+	rotate();
+</script>
+</body>
+</html>

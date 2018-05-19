@@ -1,0 +1,29 @@
+<html>
+<head>
+<style>
+	.image{
+		width : 400px;
+		height : 200px;
+	}
+</style>
+</head>
+<body>
+<canvas id="viewport" class="image"></canvas>
+
+<script>
+	var canvas = document.getElementById('viewport'),
+	context = canvas.getContext('2d');
+
+	make_base();
+
+	function make_base()
+	{
+	  base_image = new Image();
+	  base_image.src = 'avatarimage2.png';
+	  base_image.onload = function(){
+		context.drawImage(base_image, 10, 0);
+	  }
+	}
+</script>
+</body>
+</html>

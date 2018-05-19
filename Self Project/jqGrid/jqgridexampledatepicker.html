@@ -1,0 +1,66 @@
+
+
+<html>
+<head>
+<title> Jquery Grid Example </title>
+   
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css">
+	 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
+	 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>   
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">  
+
+</head>
+<body>
+<table id="table_grid"></table>
+	
+		<script type= "text/javascript">
+		var seldate;
+	$("#table_grid").jqGrid({        
+			datatype: "local",
+			height: 250,
+			colNames:['ID ','Name','Date', 'college', 'Degree'],
+			colModel:[
+				{name:'id',index:'id', width:90,  editable: true},
+				{name:'name',index:'name', width:150,editable: true},
+				{name:'date',index:'date',width:90, editable:true },
+				{name:'college',index:'college', width:60, editable: true},
+				{name:'degree',index:'degree', width:90, editable: true},
+				//{name:'city',index:'city', width:200,editable: true }		
+			],
+			onSelectRow: function(id){
+				if(id && id!==seldate){
+					jQuery('#table_grid').jqGrid('restoreRow',seldate);
+					jQuery('#table_grid').jqGrid('editRow',id,true,pickdates);
+					seldate=id;
+				}
+			},
+			editurl: "server.php",
+			caption: "Date Picker in jqGrid"
+
+		});
+		var mydata = [
+				{id:"01",name:"Desktop Computer",college:"note",degree:"Yes", date:"2007-12-03"},
+				{id:"02",name:"Laptop",college:"Long text ",degree:"Yes",date:"2007-12-03"},
+				{id:"03",name:"LCD Monitor",college:"note3",degree:"Yes",date:"2007-12-03"},
+				{id:"04",name:"Speakers",college:"note",degree:"No",date:"2007-12-03"},
+				{id:"05",name:"Laser Printer",college:"note2",degree:"Yes",date:"2007-12-03"},
+				{id:"06",name:"Play Station",college:"note3",degree:"No",date:"2007-12-03"},
+				{id:"07",name:"Mobile Telephone",college:"note",degree:"Yes",date:"2007-12-03"},
+				{id:"08",name:"Server",college:"note2",degree:"Yes",date:"2007-12-03"},
+				{id:"09",name:"Matrix Printer",college:"note3",degree:"No", date:"2007-12-03"}
+				];
+		for(var i=0;i < mydata.length;i++)
+			jQuery("#table_grid").jqGrid('addRowData',mydata[i].id,mydata[i]);
+
+		function pickdates(id){
+			jQuery("#"+id+"_date","#table_grid").datepicker({dateFormat:"yy-mm-dd",showOtherMonths : true,numberOfMonths : 2 });
+		}
+</script>
+</body>
+</html>

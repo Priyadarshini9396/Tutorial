@@ -1,0 +1,170 @@
+<html>
+<head>
+<title> Jquery Grid Example </title>
+   
+	<!--CSS Files -->
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/trontastic/jquery-ui.css ">	<!--for grid theme-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css">
+	
+	<!-- JS Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/trontastic/jquery-ui.css ">
+
+</head>
+<body>
+	<!-- Grid table Id -->
+	<table id = "secondgrid"> </table>
+	
+	<!-- Grid Pagination -->
+	<div id="secondpgr"> </div>
+	<br><br>
+	<!-- Row selection -->
+	<a href="#" id="rowselection">Get data from selected row</a> <br> <br>
+	
+	<!-- Sort Column -->
+	<a href="#" id="sortcol">Set Sort Column</a> <br> <br>
+	
+	<input type="button" id="edit" value="Edit row 5" />
+	<input type="button" id="save" disabled='true' value="Save row 5" />
+	<input type="button" id="cancel" disabled='true' value="Cancel Save" /> <br> <br>
+	<input type="button" id="editselect" value="Edit Selected" />
+	<input type="button" id="addselect" value="Add" />
+	<input type="button" id="deleteselect" value="Delete Row" /><br><br>
+	
+	<!-- Getting Number of records -->
+	<a href="#" id="records">Get Number of records</a> <br> <br>
+	
+	<a href="#" id="hidecolumn">Hide Column Last Name</a> <br> 
+	
+	<a href="#" id="showcolumn">Show Column Last Name</a> <br> <br>
+	
+	
+	<!-- Script for Grid -->
+	<script type= "text/javascript">
+		//declaring local data and stored local data as mydata
+		var datasel;
+			var mydata = [
+					{ Id: "1", FirstName: "Priya", LastName: "Darshini", date :"1996-05-10", location : "Chennai", },
+					{ Id: "2", FirstName: "Rumana", LastName: "Rumana", date : "1996-06-12",location :"Madurai"},
+					{ Id: "3", FirstName: "Charles", LastName: "Babage",  date : "1986-12-18",location : "Pondicherry" },
+					{ Id: "4", FirstName: "Barack", LastName: "Obama", date : "1986-02-28", location : "Kanchipuram" },
+					{ Id: "5", FirstName: "Rajni", LastName: "Kanth",  date : "1995-08-20", location : "Salem" },
+					{ Id: "6", FirstName: "Adharva", LastName: "Murali", date :"1993-11-30", location : "Chennai"},
+					{ Id: "7", FirstName: "Goutham", LastName: "Karthick", date :"1992-08-21", location : "Chennai"},
+					{ Id: "8", FirstName: "Kajal", LastName: "Agarwal", date :"1989-06-10", location : "Chennai"},
+					{ Id: "9", FirstName: "Nikil", LastName: "Kalrani", date :"1993-08-11", location : "Chennai"},
+					{ Id: "10", FirstName: "Abdul", LastName: "Wahab", date :"1988-08-20", location : "Kerela"},
+					{ Id: "11", FirstName: "Naseerudeen", LastName: "Mohammed", date :"1994-05-15", location : "Chennai"}
+				];
+			$("#secondgrid").jqGrid({
+				datatype:"local",
+				data: mydata,
+				colNames:['Actions','First Name','Last Name', 'Date', 'Location'],
+   	
+				colModel: [
+					{name:'act',index:'act',sortable:false},
+					//{ name : "ID",index :'id',Label : "ID",editable : true},
+					{ name: "FirstName",index:'first_name',Label : "First Name",editable:true},
+					{ name: "LastName",index:'last_name', Label : "Last Name",editable:true },
+					{ name: "date", index :'date',label: "Date",  align: "center", sorttype: "date", formatter: "date", formatoptions: { newformat: "d-M-Y" } ,editable:true },
+					{ name: "location",index : 'date', Label : "Location" ,editable:true },
+					
+				],		
+				scroll: true,				
+				rownumbers: true,
+				width : 800,
+				height: 180,
+				pager : "#secondpgr",
+				hiddengrid: true, //Hiding grid when page gets open
+			//Custom Edit	
+				gridComplete: function(){
+				var ids = jQuery("#secondgrid").jqGrid('getDataIDs');
+				for(var i=0;i < ids.length;i++){
+					var cl = ids[i];
+					be = "<input style='height:22px;width:20px;' type='button' value='E' onclick=\"jQuery('#secondgrid').editRow('"+cl+"');\"  />"; 
+					se = "<input style='height:22px;width:20px;' type='button' value='S' onclick=\"jQuery('#secondgrid').saveRow('"+cl+"');\"  />"; 
+					ce = "<input style='height:22px;width:20px;' type='button' value='C' onclick=\"jQuery('#secondgrid').restoreRow('"+cl+"');\" />"; 
+					jQuery("#secondgrid").jqGrid('setRowData',ids[i],{act:be+se+ce});
+				}	
+			},
+		/*Editing and saving data when the user click on some row.. This way when we press Enter data is saved
+			to the server and when we press ESC key the editing is canceled.*/ 
+				onSelectRow: function(id){
+					if(id && id!==datasel){
+						$('#secondgrid').jqGrid('restoreRow',datasel);
+						$('#secondgrid').jqGrid('editRow',id,true);
+						datasel=id;
+					}
+				},
+				
+				ondblClickRow: function(id){ alert("You double clicked this row.. "  );}, //For double click on row
+				caption: "jQuery Grid Example"
+			});
+		//row selection 
+			$("#rowselection").click( function(){
+			var id = $("#secondgrid").jqGrid('getGridParam','selrow');
+				if (id)	{
+					var ret = $("#secondgrid").jqGrid('getRowData',id);
+					alert(""+ret.FirstName+"  from "+ret.location+"...");
+				} else { alert("Please select row");}
+			});
+		//Sorting Column in the grid
+			$("#sortcol").click( function() {
+				$("#secondgrid").jqGrid('setGridParam',{sortname:"location",sortorder:"asc"}).trigger("reloadGrid");
+			});
+		
+		//Edit 
+			$("#edit").click( function() {
+				$("#secondgrid").jqGrid('editRow',"5");
+					this.disabled = 'true';
+						$("#save,#cancel").attr("disabled",false);
+			});
+		//Save
+			$("#save").click( function() {
+				$("#secondgrid").jqGrid('saveRow',"5");
+					$("#save,#cancel").attr("disabled",true);
+						$("#edit").attr("disabled",false);
+			});
+		//Cancel
+			$("#cancel").click( function() {
+				$("#secondgrid").jqGrid('restoreRow',"5");
+					$("#save,#cancel").attr("disabled",true);
+						$("#edit").attr("disabled",false);
+			});
+		//we can add dialog for data editing in any row which we select in the grid
+			$("#editselect").click(function(){
+				var gr = $("#secondgrid").jqGrid('getGridParam','selrow');
+					if( gr != null ) 
+						$("#secondgrid").jqGrid('editGridRow',gr,{height:330,width:310,reloadAfterSubmit:false});
+					else alert("Please Select Row");
+			});
+		//Add new row (dialog)
+			$("#addselect").click(function(){
+				$("#secondgrid").jqGrid('editGridRow',"new",{height:330,width:310,reloadAfterSubmit:false});
+			});
+		//Delete row in the grid
+			$("#deleteselect").click(function(){
+				var gr = $("#secondgrid").jqGrid('getGridParam','selrow');
+					if( gr != null )
+						$("#secondgrid").jqGrid('delGridRow',gr,{reloadAfterSubmit:false});
+					else alert("Please Select Row to delete!");
+			});
+		//Get Number of Records
+			$("#records").click( function() {
+				alert($("#secondgrid").jqGrid('getGridParam',"records"));
+			});
+		//Hide Last Name Column in the grid
+			$("#hidecolumn").click( function() {
+				$("#secondgrid").jqGrid('hideCol',["LastName"]);
+			});
+		//Show Last Name Column in the grid
+			$("#showcolumn").click( function() {
+				$("#secondgrid").jqGrid('showCol',["LastName"]);
+			});
+		
+	</script>
+</body>
+</html>

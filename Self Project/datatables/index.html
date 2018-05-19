@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Datatables Example</title>
+ 
+    <!--JS Files -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+<!--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+    
+    <!--CSS Files-->
+   <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
+       <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/trontastic/jquery-ui.css">
+
+    
+<style>
+    tbody tr{
+    text-align: center;
+    }
+    </style>
+</head>
+    <body>
+    <div class="container">
+        <table class="table table-hover" id="example" style="width:100%">
+       <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+        
+
+<!-- Script for Datatables -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').dataTable( {
+        "ajax": "arrays.txt"
+        } );
+    });
+    </script>
+</body>
+</html>

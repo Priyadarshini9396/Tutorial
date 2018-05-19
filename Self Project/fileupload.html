@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+<form action=" " method="get">
+<input type="file" name="datafile" size="40"><br><br>
+<!--Multiple Files to upload -->
+<input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" />
+<input type="submit" value="Send">
+	</form>
+<a href="no-script.html">Download now!</a>		
+<script type="text/javascript">
+$('a').click(function(e) {
+    e.preventDefault();  //stop the browser from following
+    window.location= 'uploads/file.txt';
+});
+</script>
+
+	<!--file download-->
+	<input type="button" value="Download" onclick="download('file.ext')">
+	
+	<script type="text/javascript">
+		function download(file)
+		{
+			window.location = file;
+		}
+	</script>
+</body>
+</html>

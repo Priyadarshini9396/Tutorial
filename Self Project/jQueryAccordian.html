@@ -1,0 +1,133 @@
+<!-- Author : Priyadarshini
+	Company name : Wizara Infotech
+	Date : 20-Feb-2018
+	Description : This project is about a jQuery Accordian in HTML.
+-->
+<html>
+   <head>
+      <title>jQuery Autocomplete with Static Data</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  </head>
+<style>
+	h3{
+		color: #e70fb9;
+		font-family: cursive;
+		text-align: center;
+	}
+	 .accordion{
+		width:900px;
+	}
+</style>
+<body>
+	<h3>JQuery Accordian Examples</h3>
+	<!--Accordian Example 1-->
+	<h5>Simple Accordian..!!</h5>
+		<div id="accordion" class="accordion">
+			<h4>About jQuery</h4>
+			<div>
+				<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+			</div>
+		  <h4>About JavaScript</h4>
+			<div>
+				<p>JavaScript, often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. </p>
+			</div>
+		</div>
+
+	<!--Accordian Example 2-->
+	<h5>Simple Accordian as just specified as collapsible activation in script....</h5>
+		<div id="accordion1" class="accordion">
+			<h4>About jQuery</h4>
+			<div>
+				<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+			</div>
+			<h4>About JavaScript</h4>
+			<div>
+				<p>JavaScript, often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. </p>
+			</div>
+		</div>
+	
+	<!--Accordian Example 3-->
+	<h5>Example for Accordian disabled.. </h5>
+		<div id="accordion2" class="accordion">
+			<h4>About jQuery</h4>
+			<div>
+				<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+			</div>
+			<h4>About JavaScript</h4>
+			<div>
+				<p>JavaScript, often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. </p>
+			</div>
+		</div>
+		
+	<!--Accordian Example 4-->
+	<h5>Example for Accordian Event </h5>
+		<div id="accordion3" class="accordion">
+			<h4>About jQuery</h4>
+			<div>
+				<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+			</div>
+			<h4>About JavaScript</h4>
+			<div>
+				<p>JavaScript, often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. </p>
+			</div>
+		</div>
+	<!--Accordian Example 5-->
+	<h5>Example for Accordian using icons </h5>
+		<div id="accordion4" class="accordion">
+			<h4>About jQuery</h4>
+			<div>
+				<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+			</div>
+			<h4>About JavaScript</h4>
+			<div>
+				<p>JavaScript, often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. </p>
+			</div>
+		</div>
+		
+<!--Script for Accordian Example-1 -->
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+
+  <!--Script for Accordian Example-2 -->  
+  <script>
+  $( function() {
+	$( "#accordion1" ).accordion({
+		collapsible: true
+	});
+ });
+ </script>
+ 
+<!--Script for Accordian Example-3 -->  
+  <script>
+  $( function() {
+	$( "#accordion2" ).accordion({
+		disabled: true
+	});
+ });
+ </script>
+ 
+<!--Script for Accordian Example-4 -->  
+  <script>
+  $( function() {
+	$( "#accordion3" ).accordion({
+		event : "mouseover"
+	});
+ });
+ </script>
+		
+<!--Script for Accordian Example-5 -->  
+  <script>
+  $( function() {
+	$( "#accordion4" ).accordion({
+		icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus"   }
+	});
+ });
+ </script>
+		
+ </body>
+ </html>

@@ -1,0 +1,173 @@
+<!-- Name : Priyadarshini
+     Company name : Wizara Infotech 
+     Date : 13-April-2018
+     Description : Regex validation Example -->
+     
+<html>
+<head>
+    <title>Regex Validation Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+	<link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.css">
+    
+    <style>
+    .form-control{
+        width:200px;
+        }
+        textarea{
+            resize: none;
+        }
+        .has-error .form-control-feedback {
+            color: #a94442;
+            margin-right: 880px;
+        }
+        .has-success{
+             margin-right: 880px;
+        }
+    </style>
+    </head>
+    
+<body>
+    <div class="container">
+    <form method="post" id="regex_form" name="regex_form" autocomplete="off">
+        <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name..">
+            <span class='error-message' id='name-error'></span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-phone">Phone Number</label>
+            <input type="tel" class="form-control" id="contact" name="contact" placeholder="Ex: 1231231234">
+            <span class='error-message' id='phone-error'></span>
+          </div>
+        
+         <div class="form-group">
+            <label for="contact-phone">Alteranate Phone Number</label>
+            <input type="tel" class="form-control" id="altcontact" name="altcontact" placeholder="Ex: 1231231234">
+            <span class='error-message' id='phone-error'></span>
+          </div>
+
+
+          <div class="form-group">
+            <label for="contact-email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+            <span class='error-message' id='email-error'></span>
+          </div>   
+
+        <div class="form-group">
+            <label for='contactMessage'>Your Message</label>
+            <textarea class="form-control" rows="5" id='message'  name='message'  placeholder="Enter a brief message"></textarea>
+            <span class='error-message' id='message-error'></span>
+          </div>
+
+        <button type="submit" class="btn btn-primary" id="submitbtn" >Submit</button>
+      
+      </form>
+        </div>
+    
+    
+<script>
+$(document).ready(function() {
+    $('#regex_form').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 3,
+                        max: 50,
+                        message: 'The username must be like this Ex. X. Yyy Dyu'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z .]*$/,
+                     //  regexp : /^[A-Z]. [A-Z][a-z][ A-Z][a-z]*$/,
+                      //regexp: /^[A-Z][.][A-Z][a-z]+(?:[ _@-][A-Z][a-z]+\d{3})*$/, //X.Yud-Chc120
+                         // regexp: /^[a-zA-Z]+$/,
+                        message: 'The username can only consist of only alphabets'
+                    },
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        regexp : /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/,
+                        message: 'The email address is not a valid'
+                    }
+                }
+            },      
+			contact : {
+				message: 'Entered Contact Number is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'Contact Number is required and cannot be empty'
+                    },
+                    stringLength: {
+                        message: 'Contact Number must be only 10 digits'
+                    },
+                    regexp: {
+                        regexp: /^\d{10}$/,// 10 digits only
+                        message: 'Invalid contact number'
+                    }
+                }
+			},
+            altcontact : {
+				message: 'Entered Contact Number is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'Contact Number is required and cannot be empty'
+                    },
+                    stringLength: {
+                        message: 'Contact Number must be only 10 digits'
+                    },
+                    regexp: {
+                        regexp:/^1?[\(\- ]*\d{3}[\)-\. ]*\d{3}[-\. ]*\d{4}$/, // 8056147963 , 1-800-555-1212, (800-555-1212), 800.555.1212, 800-555-1212
+                        message: 'Invalid contact number'
+                    }
+                }
+			},
+             message : {
+                validators: {
+                    notEmpty: {
+                        message: 'Comments is required and cannot be empty'
+                    },
+                    stringLength: {
+                        message: 'Comments must be 20 characters'
+                    },
+                    regexp: {
+                        regexp:/^[a-zA-Z0-9 _,.!-]*$/, 
+                        message: 'Please check that who you have entered'
+                    }
+                }
+			},
+		}		
+    });
+    	$("#regex_form").click (function()  {
+			var name = $("#name").val();
+			var email = $("#email").val();
+			var contact = $("#contact").val();
+			var altcontact = $("#altcontact").val();
+			//alert("  Name : " + name + " \n Email : " + email + " \n Contact : " + contact + " \n Altcontact : " + altcontact + "  \n\n Form Submitted Successfully......");
+		});
+    
+//   $("#submitbtn").click (function()  {
+//   window.location.href='jQuery autocomplete.html';
+//});
+});
+</script>
+    </body>
+</html>

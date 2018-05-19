@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Registration Form</title>
+<!--<link rel="stylesheet" type="text/css" href="Stylesheet.css"/>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.name{
+    font-size: 16px;
+    font-family: cursive;
+    color: lightcoral;
+	}
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    
+}
+</style>
+</head>
+<body>
+<h3 class="h3">Registration Form</h3>
+<form name="reg_form"  id="reg_form" action="regform.php" method="Post" >
+<div class="container">
+
+<div class = "panel panel-default">
+   <div class = "panel-heading">
+		<h2>Personal Details</h2>
+	</div>
+	
+   <div class = "panel-body">
+	<div class="input-group">
+	<label for="name" class="name">First Name </label>
+		<input type="text" name="fname" id="firstname" class="form-control" placeholder="FirstName" onkeypress="return blockSpecialChar(event)" required><br>	
+</div>
+<div class="input-group">
+	<label for="name" class="name">Last Name	</label>
+	<input type="text" name="lname" id="lastname" class="form-control" placeholder="LastName" onkeypress="return blockSpecialChar(event)" required><br>
+</div>	
+<div class="input-group">
+		<label for="name" class="name">Gender	</label>
+		<input type="radio" name="gender" value="Male" id="male" required>Male
+			 <input type="radio" name="gender" value="Female" id="female">Female<br>
+	</div>	
+<div class="input-group">	
+	<label for="name" class="name">D.O.B.	</label>
+	<input type="date" class="dob" name="dob" size="20" id="dob" class="form-control"    required ><br>
+	</div>	
+	<div class="input-group">	
+		<label for="name" class="name">City</label>
+			<select id="dropdown1" name="city"  class="form-control" required>
+								<option value="NA">--Select City--</option>
+								<option value="ariyalur">Ariyalur</option>
+								<option value="banglore">Bangalore</option>
+								<option value="chennai">Chennai</option>
+								<option value="dindugal">Dindugal</option>
+								<option value="erode">Erode</option>
+								<option value="hosur">Hosur</option>
+								<option value="karnataka">Karnataka</option>
+								<option value="madurai">Madurai</option>
+								<option value="nagapattinam">Nagapattinam</option>
+								<option value="puducherry">Puducherry</option>
+								<option value="salem">Salem</option>
+								<option value="trichy">Trichy</option>
+								<option value="vellore">Vellore</option>
+							</select>
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">Contact Number</label>
+				<input type="text" name="cnumber" id="cnumber" size="20" class="form-control" onkeypress="return blockSpecialChar_number(event)" maxlength="10" required><br>		
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">Email ID</label>
+			<input type="text" name="email" id="email" size="20" class="form-control" onkeypress="return blockSpecialChar_emailid(event)" title="Feild must contain '@'" maxlength="30" required><br>
+	</div>
+	<div class="input-group">	
+		<label for="name" class="name">Password</label>
+			<input type="password" name="password" id="password" class="form-control" size="20" maxlength="5" required><br>
+	</div>
+</div>
+</div>
+</form>
+</body>
+</html>

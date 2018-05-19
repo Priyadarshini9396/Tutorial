@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Datatables Example</title>
+ 
+    <!--JS Files -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+<!--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+    
+    <!--CSS Files-->
+   <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css">
+       <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/trontastic/jquery-ui.css">
+
+    
+<style>
+    tbody tr{
+    text-align: center;
+    }
+    </style>
+</head>
+    <body>
+    <div class="container">
+        <table class="table table-hover" id="example" style="width:100%">
+         <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+<!--
+        <tbody>
+            <tr>
+                <td>Xxx</td>
+                <td>Cs</td>
+                <td>Chennai</td>
+                <td>2</td>
+                <td>29-03-1928</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+-->
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+        
+
+<!-- Script for Datatables -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable( {
+          "data": [
+        {
+            "name":       "Tiger Nixon",
+            "position":   "System Architect",
+            "salary":     "$3,120",
+            "start_date": "2011/04/25",
+            "office":     "Edinburgh",
+            "extn":       "5421"
+        },
+        {
+            "name": "Garrett Winters",
+            "position": "Director",
+            "salary":  "$6,870",
+            "start_date": "2011/07/25",
+            "office": "Edinburgh",
+            "extn": "8422"
+        },
+        {
+            "name": "Ashton Cox",
+            "position": "Junior Technical Author",
+            "salary": "$86,000",
+            "start_date": "2009/01/12",
+            "office": "San Francisco",
+            "extn": "1562"
+        }
+        // ...
+    ],
+    "columns": [
+        { "data": "name" },
+        { "data": "position" },
+        { "data": "office" },
+        { "data": "extn" },
+        { "data": "start_date" },
+        { "data": "salary" }
+    ]
+} );
+        } );
+
+    </script>
+</body>
+</html>

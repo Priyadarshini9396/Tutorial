@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Progressbar - Default functionality</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  
+  <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <style>
+.ui-progressbar { 
+	color :#ff;
+} 
+</style>
+</head>
+<body>
+ 
+ <!-- Progress bar -->
+<div id="progressbar"></div> <br><br><br>
+ <script>
+  $( function() {
+    $( "#progressbar" ).progressbar({
+      value: 37
+    });
+  } );
+  </script>
+  <!--Progress bar 1-->
+ <div id="progressbar1" class="progressbar"></div><br><br><br>
+ 
+<script>
+$( "#progressbar1" ).progressbar({
+  value: false
+});
+</script>
+<!-- Progress bar 2-->
+<div id="progressbar2"></div><br><br><br>
+ 
+<script>
+$( "#progressbar2" ).progressbar({
+  value: 37
+});
+</script>
+
+<!--Spinner -->
+<input id="spinner">
+ 
+<script>
+$( "#spinner" ).spinner();
+</script>
+</body>
+</html>

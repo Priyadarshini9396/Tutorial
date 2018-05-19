@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>slippry demo</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="../dist/slippry.min.js"></script>
+		<!--<script src="//use.edgefonts.net/cabin;source-sans-pro:n2,i2,n3,n4,n6,n7,n9.js"></script>-->
+		<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="../dist/slippry.css">
+	</head>
+	<body>
+		<section class="demo_wrapper">
+			<article class="demo_block">
+				<!--<h1 id="main-title">Simple demo with default config</h1>
+				<a href="#glob" class='prev'>Prev</a> / <a href="#glob" class='next'>Next</a>
+		|| <a href="#glob" class='init'>Init</a> | <a href="#glob" class='reset'>Destroy</a> | <a href="#glob" class='reload'>Reload</a>
+		|| <a href="#glob" class='stop'>Stop</a> | <a href="#glob" class='start'>Start</a>-->
+			<ul id="demo1">
+				<li><img src="img/image-1.jpg" alt="Caption 1"></li>
+				<li><img src="img/image-2.jpg"  alt="Caption 2"></li>
+				<li><img src="img/image-4.jpg" alt="Caption 3"></li>
+				<li><img src="img/image-1.jpg" alt="Caption 1"></li>
+			</ul>
+			</article>
+		</section>
+
+		<script>
+			$(function() {
+				var demo1 = $("#demo1").slippry({
+					// transition: 'fade',
+					// useCSS: true,
+					// speed: 1000,
+					// pause: 3000,
+					// auto: true,
+					// preload: 'visible',
+					// autoHover: false
+				});
+
+				//$('.stop').click(function () {
+				//	demo1.stopAuto();
+				//});
+
+				//$('.start').click(function () {
+				//	demo1.startAuto();
+				//});
+
+				//$('.prev').click(function () {
+				//	demo1.goToPrevSlide();
+				//	return false;
+				//});
+				//$('.next').click(function () {
+				//	demo1.goToNextSlide();
+				//	return false;
+				//});
+				//$('.reset').click(function () {
+				//	demo1.destroySlider();
+				//	return false;
+				//});
+				//$('.reload').click(function () {
+				//	demo1.reloadSlider();
+				//	return false;
+				//});
+				//$('.init').click(function () {
+					//demo1 = $("#demo1").slippry();
+//return false;
+				//});
+			});
+		</script>
+	</body>
+</html>

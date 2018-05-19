@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+<!--
+		<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+-->
+         <style>
+
+    
+.portfolio-grid {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+.portfolio-grid li {
+	display: inline-block;
+	margin: 5px 5px 5px 5px;
+	vertical-align: top;
+    width:212px;
+}
+
+.portfolio-grid li > a,
+.portfolio-grid li > a img {
+    width: 100%;
+	border: none;
+	outline: none;
+	display: block;
+	position: relative;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.portfolio-grid li > a img:hover {
+    border-radius: 50%;
+    z-index: 9999;
+}
+
+
+/******************************************
+ Animate.CSS By Dan Eden
+******************************************/
+
+.animated{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;}
+@-webkit-keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    
+    40% {
+        -webkit-transform: perspective(400px) rotateX(-10deg);
+    }
+    
+    70% {
+        -webkit-transform: perspective(400px) rotateX(10deg);
+    }
+    
+    100% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@-moz-keyframes flipInX {
+    0% {
+        -moz-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    
+    40% {
+        -moz-transform: perspective(400px) rotateX(-10deg);
+    }
+    
+    70% {
+        -moz-transform: perspective(400px) rotateX(10deg);
+    }
+    
+    100% {
+        -moz-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@-o-keyframes flipInX {
+    0% {
+        -o-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    
+    40% {
+        -o-transform: perspective(400px) rotateX(-10deg);
+    }
+    
+    70% {
+        -o-transform: perspective(400px) rotateX(10deg);
+    }
+    
+    100% {
+        -o-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+@keyframes flipInX {
+    0% {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    
+    40% {
+        transform: perspective(400px) rotateX(-10deg);
+    }
+    
+    70% {
+        transform: perspective(400px) rotateX(10deg);
+    }
+    
+    100% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.flipInX {
+	-webkit-backface-visibility: visible !important;
+	-webkit-animation-name: flipInX;
+	-moz-backface-visibility: visible !important;
+	-moz-animation-name: flipInX;
+	-o-backface-visibility: visible !important;
+	-o-animation-name: flipInX;
+	backface-visibility: visible !important;
+	animation-name: flipInX;
+}
+</style>
+	</head>
+	<body>
+		<div class="container demo-3">
+			<!-- Top Navigation -->
+<!--
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/CreativeButtons/"><span>Previous Demo</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=15469"><span>Back to the Codrops Article</span></a></span>
+			</div>
+-->
+			<header>
+				<h1>Caption Hover Effects</h1>	
+			</header>
+			<ul class="grid cs-style-3">
+				<li>
+					<figure>
+						<img src="img/3.png" alt=" ">
+						<figcaption>
+							<h3>Settings</h3>
+<!--							<span>Jacob Cummings</span>-->
+<!--							<a href="http://dribbble.com/shots/1116685-Settings">Take a look</a>-->
+						</figcaption>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="img/g1.jpg" alt=" ">
+						<figcaption>
+							<h3>Camera</h3>
+<!--							<span>Jacob Cummings</span>-->
+<!--							<a href="http://dribbble.com/shots/1115632-Camera">Take a look</a>-->
+						</figcaption>
+					</figure>
+				</li>
+			</ul>
+		</div>
+   	<div class="container demo-3">     
+         <header>
+				<h1>Images with shape effects</h1>	
+			</header>     
+        <div id="portfolio">       
+	       <ul class="portfolio-grid">
+                <li>
+                    <a href="#" class="animated flipInX">
+                        <img src="img/g4.jpg" alt=" "/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="animated flipInX">
+                        <img src="img/g7.jpg" alt=" "/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="animated flipInX">
+                        <img src="img/g5.jpg" alt=" "/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="animated flipInX">
+                        <img src="img/g7.jpg" alt=" "/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="animated flipInX">
+                        <img src="img/g15.jpg" alt=" "/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!-- Author : Priyadarshini D
+	Company Name : nWizara Infotech 
+	Date : 27-Feb-2018
+	Description : This Webpage contains jQuery Grid with Dummy data
+-->
+
+<html>
+<head>
+<title> Jquery Grid Example </title>
+   
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/css/ui.jqgrid.css">
+	 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqgrid/4.6.0/js/i18n/grid.locale-en.js"></script>
+	 
+
+</head>
+<body>
+	<table id = "secondgrid"> 
+	</table>
+	<div id="secondpgr" >
+	</div>
+	
+	<!--<a href="#" id="hidecol"> Hide Column </a>
+	<a href = "#" id="showcol"> Show Column </a>-->
+	
+	<script type= "text/javascript">
+	
+			var mydata = [
+					{ Id: "1", FirstName: "Priya", LastName: "Darshini", date :"1996-05-10", location : "Chennai" },
+					{ Id: "2", FirstName: "Rumana", LastName: "Rumana", date : "1996-06-12",location :"Madurai"},
+					{ Id: "3", FirstName: "Charles", LastName: "Babage",  date : "1986-12-18",location : "Pondicherry" },
+					{ Id: "4", FirstName: "Barack", LastName: "Obama", date : "1986-02-28", location : "Kanchipuram" },
+					{ Id: "5", FirstName: "Rajni", LastName: "Kanth",  date : "1995-08-20", location : "Salem" },
+					{ Id: "6", FirstName: "Adharva", LastName: "Murali", date :"1993-11-30", location : "Chennai"},
+					{ Id: "7", FirstName: "Goutham", LastName: "Karthick", date :"1992-08-21", location : "Chennai"},
+					{ Id: "8", FirstName: "Kajal", LastName: "Agarwal", date :"1989-06-10", location : "Chennai"},
+					{ Id: "9", FirstName: "Nikil", LastName: "Kalrani", date :"1993-08-11", location : "Chennai"},
+					{ Id: "10", FirstName: "Abdul", LastName: "Wahab", date :"1988-08-20", location : "Kerela"},
+					{ Id: "11", FirstName: "Naseerudeen", LastName: "Mohammed", date :"1994-05-15", location : "Chennai"}
+				];
+			$("#secondgrid").jqGrid({
+				datatype:"local",
+				data: mydata,
+				colModel: [
+					//{ name : "ID",index :'id',Label : "ID",editable : true},
+					{ name: "FirstName",index:'first_name',Label : "First Name",editable:true},
+					{ name: "LastName",index:'last_name', Label : "Last Name",editable:true },
+					{ name: "date", index :'date',label: "Date",  align: "center", sorttype: "date", formatter: "date", formatoptions: { newformat: "d-M-Y" } },
+					{ name: "location",index : 'date', Label : "Location" },
+					
+				],			
+				
+				jQuery("#secondgrid").jqGrid('jqPivot', 
+					
+					// pivot options
+					{
+						xDimension : [{dataName: 'FirstName'} ],
+						yDimension : [],
+						aggregates : [
+							{ 
+								member : 'location', 
+								aggregator : 'current', 
+								width:80, 
+								label:'Sum Price', 
+								//formatter:'number', 
+								align:'right'
+							}
+						]
+					}, 
+					// grid options
+					{
+						width: 700,
+						rowNum : 150,
+						pager: "#secondpgr",
+						caption: "jqGrid Pivot Example"
+					});
+
+					
+			
+			
+			
+	
+	</script>
+</body>
+</html>
